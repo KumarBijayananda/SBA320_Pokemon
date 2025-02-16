@@ -4,7 +4,7 @@ export default function Nav() {
   return (
     <nav className='nav'>
       <Link to='/'>
-        <div><img className="logo" src="../src/assets/pokemon-logo.png" alt="image of pokemon logo" /></div>
+        <div><img className="logo" src="src/assets/Pokemon_banner.jpg" alt="image of pokemon logo" /></div>
       </Link>
       {/* <Link to='/currencies'>
         <div>CURRENCIES</div>
