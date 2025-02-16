@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import { Routes,Route } from 'react-router-dom'
-
-import './App.css'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import Nav from "./components/Nav";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Pokemon</h1>
-    </>
-  )
+    <div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
