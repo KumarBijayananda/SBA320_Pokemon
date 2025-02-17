@@ -48,6 +48,12 @@ body{
   text-align: center;
 }
 
+
+.searchDiv{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .favTitle{
   max-width:fit-content;
   margin: 0 auto;

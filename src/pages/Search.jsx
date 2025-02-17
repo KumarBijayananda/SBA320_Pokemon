@@ -1,14 +1,44 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import importPoke from "../utility/ImportPoke";
 
+export default function Search() {
+  const { query } = useParams();
+  const [searchRes, setSearchRes] = useState([]);
 
-export default function Search(){
-    const { query } = useParams();
+  useEffect(()=>{
+    try {
+        async function searchForPoke(){
+            const res= await importPoke(query);
+            setSearchRes(res)
+        }
 
+        searchForPoke();
 
-    
-    return(
-        <>
-            <h1>Query :{query}</h1>
-        </>
-    )
+    } catch (error) {
+        console.error(error)        
+    }
+    },[query])
+
+   
+
+  return (
+    <>
+       <div className="searchContainer">
+          <h2>Search</h2>
+          <div className="searchDiv">
+            {searchRes.length > 0 ? (
+              searchRes.map((card) => (
+                <div key={card.id} className="searchCard">
+                  <img src={card.images.small} alt={card.name} />
+                  <p>{card.name}</p>
+                </div>
+              ))
+            ) : (
+              <p>No search result for `${query}`.</p>
+            )}
+          </div>
+        </div>
+    </>
+  );
 }
