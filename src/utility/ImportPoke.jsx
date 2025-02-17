@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function importPoke(param) {
   try {
-    const apikey = "1bc45c64-df72-4072-ab42-551b6de898f9";
+    const apikey = import.meta.env.VITE_API_KEY;
 
     if(typeof param=== "number"){
     console.log(typeof param)
