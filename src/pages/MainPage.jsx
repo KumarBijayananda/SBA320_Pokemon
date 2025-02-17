@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function MainPage() {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [page, setPage] = useState("");//Math.floor(Math.random() * 50));
+  const [page, setPage] = useState(Math.floor(Math.random() * 50));
   const [favs, setFavs] = useState([]);
 
   // Load favorites from local storage
@@ -19,7 +19,7 @@ export default function MainPage() {
   useEffect(() => {
     async function getPoke(page) {
       const pokemons = [];
-      pokemons.push(await importPoke("char"));
+      pokemons.push(await importPoke(page));
       setImages(...pokemons);
     }
     getPoke(page);
