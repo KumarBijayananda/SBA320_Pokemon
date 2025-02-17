@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import importPoke from "../utility/ImportPoke";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Nav() {
