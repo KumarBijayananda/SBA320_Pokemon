@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Nav from "./components/Nav";
+import Favorites from "./pages/Favorites";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );
