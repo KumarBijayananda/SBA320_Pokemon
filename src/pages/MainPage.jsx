@@ -15,7 +15,7 @@ export default function MainPage() {
     setFavs(storedFavs);
   }, []);
 
-  // Fetch Pokémon cards
+  // Fetch Pokemon cards
   useEffect(() => {
     async function getPoke(page) {
       const pokemons = [];
@@ -77,22 +77,6 @@ export default function MainPage() {
           </button>
         </div>
 
-        {/* Display Favorites
-        <div className="favorites">
-          <h2>Favorites</h2>
-          <div className="favContainer">
-            {favs.length > 0 ? (
-              favs.map((fav) => (
-                <div key={fav.id} className="favCard">
-                  <img src={fav.images.small} alt={fav.name} />
-                  <p>{fav.name}</p>
-                </div>
-              ))
-            ) : (
-              <p>No favorites yet.</p>
-            )}
-          </div>
-        </div> */}
       </div>
     );
   }

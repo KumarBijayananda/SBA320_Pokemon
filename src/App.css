@@ -1,6 +1,7 @@
 *{
   margin:0;
   /* outline: 2px solid black; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -46,6 +47,10 @@ body{
   text-align: center;
 }
 
+.favTitle{
+  max-width:fit-content;
+  margin: 0 auto;
+}
 
 .cardMain {
   display: flex;
