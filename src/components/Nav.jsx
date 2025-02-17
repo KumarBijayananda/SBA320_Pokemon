@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import importPoke from "../utility/ImportPoke";
-import { useNavigate } from "react-router-dom";
 
 
 export default function Nav() {
@@ -13,10 +11,10 @@ export default function Nav() {
         setForm(event.target.value);
 
     }
-    async function handleSubmit(event){
+    function handleSubmit(event){
         event.preventDefault();
         if(form.trim()!==""){
-            navigate ('/search');
+            navigate (`/search/${form}`);
         }
         // const searchResult= await importPoke(form);
         // console.log(searchResult);

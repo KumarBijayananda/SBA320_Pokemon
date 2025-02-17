@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Router, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Nav from "./components/Nav";
 import Favorites from "./pages/Favorites";
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search/:query" element={<Search />} />
       </Routes>
     </div>
   );
