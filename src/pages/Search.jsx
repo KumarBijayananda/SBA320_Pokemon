@@ -20,6 +20,11 @@ export default function Search() {
     }
   }, [query]);
 
+  useEffect(() => {
+    const storedFavs = JSON.parse(localStorage.getItem("favs")) || [];
+    setFavs(storedFavs);
+  }, []);
+
   const handleFav = (card) => {
     // console.log(card)
     const currentCard = card;
