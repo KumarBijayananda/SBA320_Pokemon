@@ -25,7 +25,7 @@ export default function Search() {
   return (
     <>
        <div className="searchContainer">
-          <h2>Search</h2>
+          <div className="title"><h2>Search</h2></div>
           <div className="searchDiv">
             {searchRes.length > 0 ? (
               searchRes.map((card) => (

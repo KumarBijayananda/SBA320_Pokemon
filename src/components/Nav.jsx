@@ -13,13 +13,24 @@ export default function Nav() {
     }
     function handleSubmit(event){
         event.preventDefault();
-        if(form.trim()!==""){
-            navigate (`/search/${form}`);
+        console.log("form",form)
+        const query = removeAfterSpace(form);
+        if(query!==""){
+            navigate (`/search/${query}`);
         }
         // const searchResult= await importPoke(form);
         // console.log(searchResult);
 
     }
+
+    //check if string contains space and return only the part after space
+    function removeAfterSpace(str) {
+        if (str.includes(' ')) {
+          return str.substring(0, str.indexOf(' '));  //only return string before the space
+        }
+        return str; // return original string if no space is found
+      }
+
 
   return (
     <nav className="nav">

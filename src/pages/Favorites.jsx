@@ -31,7 +31,7 @@ export default function Fav() {
 
   return (
     <>
-      <div className="favTitle"><h1>Favorited Cards</h1></div>
+      <div className="title"><h1>Favorited Cards</h1></div>
       <div>
         {favs.length > 0 ? (
           <>

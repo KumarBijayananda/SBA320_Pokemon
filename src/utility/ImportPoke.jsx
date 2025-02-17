@@ -5,6 +5,7 @@ export default async function importPoke(param) {
 
     // if(typeof param=== Number){
     const apikey = "1bc45c64-df72-4072-ab42-551b6de898f9";
+    console.log(typeof param)
     const result = await axios.get(
       `https://api.pokemontcg.io/v2/cards?q=name:${param}*`,
       {
