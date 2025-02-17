@@ -34,15 +34,19 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <Link to="/">
+         <Link to="/">
+        <div className="navDiv"><button className="navBtn">Home Page</button></div>
+        </Link>
+      <div>
         <div className="logoDiv">
+        <Link to="/">
           <img
             className="logo"
             src="src/assets/pokemon-logo.png"
             alt="image of pokemon logo"
           />
+          </Link>
         </div>
-      </Link>
       <div className="search-container">
         <form
           onSubmit={handleSubmit}
@@ -50,7 +54,12 @@ export default function Nav() {
           <input className="search-box" name="search" type="text" onChange={handleChange} placeholder="Search..." />
         
         </form>
-      </div>
+        </div>
+        </div>
+        <Link to="/favorites">
+                <div className="navDiv" ><button className="navBtn">Go to Favs</button></div>  
+                </Link>
+      
     
     </nav>
   );

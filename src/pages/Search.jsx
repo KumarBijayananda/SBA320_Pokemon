@@ -53,9 +53,7 @@ export default function Search() {
                 </button>
 
                 <img src={card.images.small} alt={card.name} />
-                <Link to="/favorites">
-                  <button className="cardBtn">Go to Favs</button>
-                </Link>
+               
               </div>
             ))
           ) : (
