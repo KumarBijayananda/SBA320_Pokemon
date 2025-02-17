@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function MainPage() {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [page, setPage] = useState(Math.floor(Math.random() * 50));
+  const [page, setPage] = useState("");//Math.floor(Math.random() * 50));
   const [favs, setFavs] = useState([]);
 
   // Load favorites from local storage
@@ -19,7 +19,7 @@ export default function MainPage() {
   useEffect(() => {
     async function getPoke(page) {
       const pokemons = [];
-      pokemons.push(await importPoke(page));
+      pokemons.push(await importPoke("char"));
       setImages(...pokemons);
     }
     getPoke(page);
@@ -34,6 +34,8 @@ export default function MainPage() {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
+
+
 
   const handleFav = () => {
     const currentCard = images[currentIndex];
@@ -52,10 +54,11 @@ export default function MainPage() {
 
   function loaded() {
     return (
+        
       <div className="container">
         <div className="cardMain">
           <button onClick={prevImage} className="cardBtn">
-            Previous
+          ❮
           </button>
           <div className="cardDiv">
             <button className="cardBtn" onClick={handleFav}>
@@ -73,10 +76,9 @@ export default function MainPage() {
             </Link>
           </div>
           <button onClick={nextImage} className="cardBtn">
-            Next
+          ❯
           </button>
         </div>
-
       </div>
     );
   }

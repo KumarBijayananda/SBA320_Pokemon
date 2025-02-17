@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useNavigate } from "react";
+import importPoke from "../utility/ImportPoke";
 
 
 export default function Nav() {
     const [form, setForm]=useState("")
+    const navigate = useNavigate();
+
 
     function handleChange(event){
         setForm(event.target.value);
 
     }
-    function handleSubmit(event){
+    async function handleSubmit(event){
         event.preventDefault();
-        console.log(form);
+        if(form.trim()!==""){
+            navigate ('/search');
+        }
+        // const searchResult= await importPoke(form);
+        // console.log(searchResult);
+
     }
 
   return (
@@ -30,14 +38,10 @@ export default function Nav() {
           onSubmit={handleSubmit}
         >
           <input className="search-box" name="search" type="text" onChange={handleChange} placeholder="Search..." />
-          {/* <button type="submit" className="search-box">
-            Search
-          </button> */}
+        
         </form>
       </div>
-      {/* <Link to='/currencies'>
-        <div>CURRENCIES</div>
-      </Link> */}
+    
     </nav>
   );
 }

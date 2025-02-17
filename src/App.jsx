@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </div>
   );
