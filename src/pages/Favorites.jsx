@@ -59,7 +59,7 @@ export default function Fav() {
             </div>
           </>
         ) : (
-          <div className="displayMain">
+          <div className="title">
             <p>No favorite Pokémon cards yet.</p>
           </div>
         )}

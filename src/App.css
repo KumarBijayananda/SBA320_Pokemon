@@ -8,7 +8,7 @@ nav {
 }
 .navBtn {
   height: 50px;
-  width: 200px;
+  width: 300px;
   margin-top: 5vh;
   font-size: 30px;
   border-radius: 10px;
@@ -74,7 +74,7 @@ body {
   gap: 20px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   width: fit-content;
   margin: 10px auto;
 }
@@ -83,7 +83,7 @@ body {
   width: 400px;
   height: 560px;
   border-radius: 10px;
-  box-shadow: 0px 8px 15px rgba(133, 131, 47, 0.4);
+  box-shadow: 0px 8px 20px rgba(133, 131, 47, 0.6);
   transition: transform 0.3s ease-in-out;
   margin: 10px;
 }
@@ -106,14 +106,6 @@ body {
   font-size: 16px;
 }
 
-.displayMain {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-size: 24px;
-}
-
 button {
   transition: all 0.2s ease;
   cursor: pointer;
@@ -124,7 +116,11 @@ button:hover {
   box-shadow: 0px 5px 5px #888888;
   background-color: #ffaa00;
 }
-/* .searchCard{
-  height: 245px;
-  width: 342px;
-} */
+.aboutBox{
+  position:absolute;
+  left: 5vw;
+  z-index: 9999;
+  width: 18vw;
+  height: 65vh;
+  font-size: clamp( 1rem, -0.50rem + 1.80vw, 4rem );
+}

@@ -55,6 +55,13 @@ export default function MainPage() {
     return (
         
       <div className="container">
+        <div className="aboutBox"><p>
+            Welcome to Pokemon Card Explorer!<br/><br/> 
+            You are looking at random Pokemon cards from the TCG Pokemon database. You can explore more by clicking Next and Previous buttons. <br /><br />
+            You can also search by typing all or part of the name of the Pokemon. <br /><br/>
+            You can favorite a card and access them from your favorites page.</p>
+        </div>
+
         <div className="cardMain">
           <button onClick={prevImage} className="cardBtn">
           ❮
@@ -62,8 +69,8 @@ export default function MainPage() {
           <div className="cardDiv">
             <button className="cardBtn" onClick={handleFav}>
               {favs.some((fav) => fav.id === images[currentIndex].id)
-                ? "Remove from Favs"
-                : "Add to Favs"}
+                ? "Remove from Faves"
+                : "Add to Faves"}
             </button>
             <img
               src={images[currentIndex].images.large}
@@ -84,8 +91,8 @@ export default function MainPage() {
 
   function loading() {
     return (
-      <div className="displayMain">
-        <h1>Loading...</h1>
+      <div className="title">
+        <h2>Loading...</h2>
       </div>
     );
   }

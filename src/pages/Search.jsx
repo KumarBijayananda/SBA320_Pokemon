@@ -5,6 +5,7 @@ import importPoke from "../utility/ImportPoke";
 export default function Search() {
   const { query } = useParams();
   const [searchRes, setSearchRes] = useState([]);
+  const [isWaiting, setIsWaiting] = useState(true);
   const [favs, setFavs] = useState([]);
 
   useEffect(() => {
@@ -12,10 +13,12 @@ export default function Search() {
       async function searchForPoke() {
         const res = await importPoke(query);
         setSearchRes(res);
+        setIsWaiting(false);
       }
 
       searchForPoke();
     } catch (error) {
+      setisWaiting(false);
       console.error(error);
     }
   }, [query]);
@@ -44,27 +47,36 @@ export default function Search() {
   return (
     <>
       <div className="searchContainer">
-        <div className="title">
-          <h2>Displaying {searchRes.length} cards that match search</h2>
-        </div>
-        <div className="searchDiv">
-          {searchRes.length > 0 ? (
-            searchRes.map((card) => (
-              <div key={card.id} className="searchCard">
-                <button className="cardBtn" onClick={() => handleFav(card)}>
-                  {favs.some((fav) => fav.id === card.id)
-                    ? "Remove from Favs"
-                    : "Add to Favs"}
-                </button>
+        {isWaiting ? (
+          <h2 className="title">Loading... Please Wait...</h2>
+        ) : (
+          <>
+            <div className="title">
+              <h2>Displaying {searchRes.length} cards that match search</h2>
+            </div>
+            <div className="searchDiv">
+              {searchRes.length > 0 ? (
+                searchRes.map((card) => (
+                  <div key={card.id} className="searchCard">
+                    <button className="cardBtn" onClick={() => handleFav(card)}>
+                      {favs.some((fav) => fav.id === card.id)
+                        ? "Remove from Faves"
+                        : "Add to Faves"}
+                    </button>
 
-                <img src={card.images.small} alt={card.name} className="searchCard"/>
-               
-              </div>
-            ))
-          ) : (
-            <p className="title">No search result for {query}.</p>
-          )}
-        </div>
+                    <img
+                      src={card.images.small}
+                      alt={card.name}
+                      className="searchCard"
+                    />
+                  </div>
+                ))
+              ) : (
+                <p className="title">No search result for {query}.</p>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </>
   );
