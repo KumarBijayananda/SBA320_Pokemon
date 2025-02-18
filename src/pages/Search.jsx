@@ -57,12 +57,12 @@ export default function Search() {
                     : "Add to Favs"}
                 </button>
 
-                <img src={card.images.small} alt={card.name} />
+                <img src={card.images.small} alt={card.name} className="searchCard"/>
                
               </div>
             ))
           ) : (
-            <p>No search result for `${query}`.</p>
+            <p className="title">No search result for {query}.</p>
           )}
         </div>
       </div>
